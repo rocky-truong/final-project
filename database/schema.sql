@@ -6,13 +6,12 @@ drop schema "public" cascade;
 
 create schema "public";
 
- CREATE TABLE "public.users" (
-	"userId" serial NOT NULL,
-	"name" TEXT NOT NULL,
-	"createdAt" timestamp with time zone NOT NULL,
-	"city" TEXT NOT NULL,
-	"ntrpRating" integer NOT NULL,
-	CONSTRAINT "users_pk" PRIMARY KEY ("userId")
-) WITH (
-  OIDS=FALSE
+create table "public"."users" (
+	"userId"      serial  NOT NULL,
+	"name"        TEXT    NOT NULL,
+	"city"        TEXT    NOT NULL,
+	"ntrpRating"  integer  NOT NULL,
+	"createdAt" timestamptz(6) not null default now(),
+	constraint "users_pk"
+  primary key ("userId")
 );
