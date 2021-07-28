@@ -1,9 +1,27 @@
 import React from 'react';
 
-export default class Search extends React.Component {
-  render() {
-    return (
-      <div>Search Result</div>
-    );
-  }
+function User(props) {
+  return (
+    <li>
+      { props.user.name }
+    </li>
+  );
 }
+
+function UserList(props) {
+  return (
+  <ul>
+    {
+      props.users.map(user => {
+        return (
+          <User
+            key={user.userId}
+            user={user} />
+        );
+      })
+    }
+  </ul>
+  );
+}
+
+export default UserList;

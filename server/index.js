@@ -19,7 +19,8 @@ app.get('/api/users', (req, res, next) => {
   const sql = `
     select "name",
            "city",
-           "ntrpRating"
+           "ntrpRating",
+           "userId"
       from "users"
   `;
   db.query(sql)
