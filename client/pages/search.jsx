@@ -14,9 +14,12 @@ function User(props) {
           { props.user.city }
         </div>
       </div>
-      <div>
-        <div className="result-ntrp">
-          NTRP { props.user.ntrpRating }.0
+      <div className="result-ntrp">
+        <div className="ntrp-text">
+          NTRP
+        </div>
+        <div className="ntrp-level">
+          { props.user.ntrpRating }.0
         </div>
       </div>
     </li>
@@ -26,18 +29,20 @@ function User(props) {
 function UserList(props) {
   return (
     <>
-      <h2 className="page-header">Search Results</h2>
-      <ul className="result-ul">
-        {
-          props.users.map(user => {
-            return (
-              <User
-                key={user.userId}
-                user={user} />
-            );
-          })
-        }
-      </ul>
+      <div className="container">
+        <h2 className="page-header">Search Results</h2>
+        <ul className="result-ul">
+          {
+            props.users.map(user => {
+              return (
+                <User
+                  key={user.userId}
+                  user={user} />
+              );
+            })
+          }
+        </ul>
+      </div>
     </>
   );
 }

@@ -2,12 +2,15 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.blue {
+  background-color: #03256c;
+}
+
 .header {
   background-color: #03256c;
   color: white;
   height: 55px;
   display: flex;
-  justify-content: center;
   align-items: center;
   position: relative;
 }
@@ -17,19 +20,11 @@
   font-weight: bold;
 }
 
-/* .footer {
-  background-color: #03256c;
-  height: 55px;
-  position: absolute;
-  bottom: 50px;
-} */
-
 .page-header {
   margin-top: 35px;
   margin-left: 30px;
   margin-bottom: 50px;
   color: #03256c;
-  font-size: 20px;
 }
 
 .result-ul {
@@ -42,13 +37,13 @@
   margin-left: 28px;
   border-bottom: 1px solid grey;
   margin-right: 28px;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .tennis-ball {
-  width: 50px;
-  height: 50px;
-  margin-right: 25px;
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
 }
 
 .result-name {
@@ -62,6 +57,16 @@
 }
 
 .result-ntrp {
-  display: flex;
-  justify-content: right;
+  text-align: right;
+  flex-grow: 1;
+}
+
+.ntrp-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.ntrp-level {
+  text-align: end;
+  margin-top: 10px;
 }

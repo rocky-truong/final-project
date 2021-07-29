@@ -1,0 +1,27 @@
+@media screen and (min-width: 700px) {
+  .container {
+    max-width: 700px;
+    margin: auto;
+  }
+}
+
+@media (orientation: landscape) {
+  .header {
+    justify-content: left;
+    margin-left: 30px;
+  }
+
+  .page-header {
+    font-size: 24px;
+  }
+}
+
+@media (orientation: portrait) {
+  .header {
+    justify-content: center;
+  }
+
+  .page-header {
+    font-size: 20px;
+  }
+}
