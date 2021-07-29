@@ -14,6 +14,8 @@ const app = express();
 
 app.use(staticMiddleware);
 
+app.use(express.json());
+
 app.get('/api/users', (req, res, next) => {
   const sql = `
   select "name",
@@ -28,8 +30,6 @@ app.get('/api/users', (req, res, next) => {
     })
     .catch(err => next(err));
 });
-
-app.use(express.json());
 
 app.post('/api/messages', (req, res, next) => {
   const newMessage = req.body;
@@ -49,6 +49,29 @@ app.post('/api/messages', (req, res, next) => {
     .then(result => {
       const postedMessage = result.rows[0];
       res.status(201).json(postedMessage);
+    })
+    .catch(err => next(err));
+});
+
+app.get('/api/messages/:recipientId', (req, res, next) => {
+  const recipientId = parseInt(req.params.recipientId, 10);
+  if (!Number.isInteger(recipientId) || recipientId <= 0) {
+    throw new ClientError(400, '"recipientId" must be a positive integer');
+  }
+  const sql = `
+    select *
+    from   "messages"
+    where  "recipientId" = $1
+  `;
+  const params = [recipientId];
+  db.query(sql, params)
+    .then(result => {
+      const messages = result.rows;
+      if (!messages[0]) {
+        throw new ClientError(404, `Cannot find messages with "recipientId" ${recipientId}`);
+      } else {
+        res.json(messages);
+      }
     })
     .catch(err => next(err));
 });
