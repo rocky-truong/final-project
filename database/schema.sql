@@ -12,7 +12,8 @@ CREATE TABLE "public"."users" (
 	"createdAt" timestamptz(6) not null default now(),
 	"city" TEXT NOT NULL,
 	"ntrpRating" integer NOT NULL,
-	CONSTRAINT "users_pk" PRIMARY KEY ("userId")
+	CONSTRAINT "users_pk"
+  PRIMARY KEY ("userId")
 ) WITH (
   OIDS=FALSE
 );
@@ -25,7 +26,8 @@ CREATE TABLE "public"."messages" (
 	"createdAt" timestamptz(6) not null default now(),
 	"senderId" serial NOT NULL,
 	"recipientId" serial NOT NULL,
-	CONSTRAINT "messages_pk" PRIMARY KEY ("messageId")
+	CONSTRAINT "messages_pk"
+  PRIMARY KEY ("messageId")
 ) WITH (
   OIDS=FALSE
 );
