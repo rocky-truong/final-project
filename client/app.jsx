@@ -1,12 +1,14 @@
 import React from 'react';
 import UserList from './pages/search';
 import Header from './components/header';
+// import { parseRoute } from './lib';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       users: []
+      // route: parseRoute(window.location.hash)
     };
   }
 
@@ -18,13 +20,17 @@ export default class App extends React.Component {
       }));
   }
 
+  renderPage() {
+    return (
+      <UserList users={this.state.users} />
+    );
+  }
+
   render() {
     return (
       <>
       <Header />
-      <div>
-        <UserList users={this.state.users} />
-      </div>
+      { this.renderPage() }
       </>
     );
   }

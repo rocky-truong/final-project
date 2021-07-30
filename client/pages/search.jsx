@@ -2,27 +2,29 @@ import React from 'react';
 
 function User(props) {
   return (
-    <li className="result-li">
-      <div>
-        <img src="images/tennisBall.png" className="tennis-ball" alt="tennis ball" />
-      </div>
-      <div>
-        <div className="result-name">
-          { props.user.name }
+    <a>
+      <li className="result-li">
+        <div>
+          <img src="images/tennisBall.png" className="tennis-ball" alt="tennis ball" />
         </div>
-        <div className="result-city">
-          { props.user.city }
+        <div>
+          <div className="result-name">
+            { props.user.name }
+          </div>
+          <div className="result-city">
+            { props.user.city }
+          </div>
         </div>
-      </div>
-      <div className="result-ntrp">
-        <div className="ntrp-text">
-          NTRP
+        <div className="result-ntrp">
+          <div className="ntrp-text">
+            NTRP
+          </div>
+          <div className="ntrp-level">
+            { props.user.ntrpRating }.0
+          </div>
         </div>
-        <div className="ntrp-level">
-          { props.user.ntrpRating }.0
-        </div>
-      </div>
-    </li>
+      </li>
+    </a>
   );
 }
 
