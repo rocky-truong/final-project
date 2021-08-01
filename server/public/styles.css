@@ -27,6 +27,45 @@
   color: #03256c;
 }
 
+.links {
+  text-align: right;
+  flex-grow: 1;
+}
+
+.search-link {
+  padding-right: 35px;
+}
+
+.search-link,
+.chats-link {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.chats-link {
+  padding-right: 30px;
+}
+
+.chats-link:hover {
+  cursor: pointer;
+}
+
+.search-link:hover {
+  cursor: pointer;
+}
+
+.search-icon {
+  font-size: 0.5rem;
+  position: fixed;
+  right: 3.5em;
+  color: white;
+}
+
+.search-icon:hover {
+  cursor: pointer;
+}
+
 .result-ul {
   padding: 0;
 }
