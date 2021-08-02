@@ -34,4 +34,17 @@
   .chats-link {
     display: none;
   }
+
+  .title {
+    position: fixed;
+  }
+
+  .button-send {
+    position: fixed;
+    right: 2em;
+  }
+
+  .text-input {
+    width: 70%;
+  }
 }

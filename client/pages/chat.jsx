@@ -1,4 +1,5 @@
 import React from 'react';
+import { intlFormat } from 'date-fns';
 
 export default class Chat extends React.Component {
   constructor(props) {
@@ -48,10 +49,17 @@ export default class Chat extends React.Component {
 }
 
 function Message(props) {
-  const { message } = props.message;
+  const { message, createdAt } = props.message;
   return (
-    <div>
-      { message }
+    <>
+    <div className="message-display">
+      <div className="timestamp">
+        { intlFormat(new Date(createdAt), { hour: '2-digit', minute: '2-digit', hour12: 'true' }) }
+      </div>
+      <div className="messages">
+        { message }
+      </div>
     </div>
+    </>
   );
 }

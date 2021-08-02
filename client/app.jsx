@@ -2,6 +2,7 @@ import React from 'react';
 import SearchList from './pages/search';
 import Header from './components/header';
 import Chat from './pages/chat';
+import ChatInput from './pages/chatInput';
 import { parseRoute } from './lib';
 
 export default class App extends React.Component {
@@ -20,6 +21,15 @@ export default class App extends React.Component {
     });
   }
 
+  addMessage(newMessage) {
+    fetch('api/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newMessage)
+    })
+      .then(response => response.json());
+  }
+
   renderPage() {
     const { route } = this.state;
     if (route.path === '') {
@@ -27,7 +37,12 @@ export default class App extends React.Component {
     }
     if (route.path === 'chats') {
       const recipientId = route.params.get('recipientId');
-      return <Chat recipientId={recipientId}/>;
+      return (
+        <>
+          <Chat recipientId={recipientId}/>
+          <ChatInput />
+        </>
+      );
     }
 
     return <SearchList />;
