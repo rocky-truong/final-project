@@ -135,7 +135,6 @@
   align-items: center;
   justify-content: center;
   padding-left: 15px;
-  margin-top: 10px;
   margin-left: 150px;
   margin-bottom: 20px;
   flex-direction: column;
@@ -153,7 +152,8 @@
 }
 
 .timestamp {
-  padding-left: 250px;
+  padding-left: 270px;
+  font-weight: lighter;
 }
 
 .text-input {

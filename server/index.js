@@ -36,14 +36,15 @@ app.post('/api/messages', (req, res, next) => {
   const sender = parseInt(newMessage.senderId, 10);
   const recipient = parseInt(newMessage.recipientId, 10);
   const message = newMessage.message;
+  const recipientName = newMessage.recipientName;
   const sql = `
-  insert into "messages" ("senderId", "recipientId", "message")
-  values ($1, $2, $3)
+  insert into "messages" ("senderId", "recipientId", "message", "recipientName")
+  values ($1, $2, $3, $4)
   returning *
   `;
-  const params = [sender, recipient, message];
-  if (!sender || !recipient || !message) {
-    throw new ClientError(400, 'senderId, recipientId, or message is missing');
+  const params = [sender, recipient, message, recipientName];
+  if (!sender || !recipient || !message || !recipientName) {
+    throw new ClientError(400, 'senderId, recipientId, message, or recipientName is missing');
   }
   db.query(sql, params)
     .then(result => {

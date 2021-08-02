@@ -39,7 +39,7 @@ export default class App extends React.Component {
       const recipientId = route.params.get('recipientId');
       return (
         <>
-          <Chat recipientId={recipientId}/>
+          <Chat recipientId={recipientId} />
           <ChatInput />
         </>
       );

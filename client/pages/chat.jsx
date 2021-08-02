@@ -17,11 +17,21 @@ export default class Chat extends React.Component {
 
   render() {
     const messages = this.state.messages;
+    let recipientId = this.props.recipientId;
+    if (recipientId === '1') {
+      recipientId = 'Austin';
+    }
+    if (recipientId === '2') {
+      recipientId = 'Ben';
+    }
+    if (recipientId === '3') {
+      recipientId = 'Vincent';
+    }
     if (messages.length >= 1) {
       return (
       <>
       <div className="container">
-        <h2 className="page-header">Chat with {this.props.recipientId}</h2>
+        <h2 className="page-header">Chat with {messages[0].recipientName}</h2>
         <div>
           {
             messages.map(message => {
@@ -40,7 +50,7 @@ export default class Chat extends React.Component {
       return (
         <>
           <div className="container">
-            <h2 className="page-header">Chat with {this.props.recipientId}</h2>
+            <h2 className="page-header">Chat with {recipientId}</h2>
           </div>
         </>
       );
