@@ -11,6 +11,7 @@ export default class App extends React.Component {
     this.state = {
       route: parseRoute(window.location.hash)
     };
+    this.addMessage = this.addMessage.bind(this);
   }
 
   componentDidMount() {
@@ -40,7 +41,7 @@ export default class App extends React.Component {
       return (
         <>
           <Chat recipientId={recipientId} />
-          <ChatInput />
+          <ChatInput recipientId={recipientId} onSubmit={this.addMessage} />
         </>
       );
     }

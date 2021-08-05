@@ -66,7 +66,7 @@ function Message(props) {
       <div className="timestamp">
         { intlFormat(new Date(createdAt), { hour: '2-digit', minute: '2-digit', hour12: 'true' }) }
       </div>
-      <div className="messages">
+      <div className="message">
         { message }
       </div>
     </div>
