@@ -21,8 +21,8 @@ export default class Header extends React.Component {
               </a>
             </div>
           </div>
+          <div className="footer"></div>
         </div>
-        <div className="footer"></div>
       </>
     );
   }

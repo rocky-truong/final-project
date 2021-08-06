@@ -27,14 +27,16 @@ export default class ChatInput extends React.Component {
   render() {
     return (
       <>
-        <form className="message-input" onSubmit={this.handleSubmit}>
-          <input type="text" name="text" id="text" value={this.state.text}
-            placeholder="Type a message..." onChange={this.handleChange}
-            required className="text-input" />
-          <button className="button-send" type="submit">
-            <i className="fas fa-paper-plane fa-2x"></i>
-          </button>
-        </form>
+        <div className="container">
+          <form className="message-input" onSubmit={this.handleSubmit}>
+            <input type="text" name="text" id="text" value={this.state.text}
+              placeholder="Type a message..." onChange={this.handleChange}
+              size="75" required className="text-input" />
+            <button className="button-send" type="submit">
+              <i className="fas fa-paper-plane fa-2x"></i>
+            </button>
+          </form>
+        </div>
       </>
     );
   }
