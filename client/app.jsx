@@ -1,8 +1,7 @@
 import React from 'react';
 import SearchList from './pages/search';
 import Header from './components/header';
-import Chat from './pages/chat';
-import ChatInput from './pages/chatInput';
+import ChatPage from './pages/chatPage';
 import { parseRoute } from './lib';
 
 export default class App extends React.Component {
@@ -11,7 +10,6 @@ export default class App extends React.Component {
     this.state = {
       route: parseRoute(window.location.hash)
     };
-    this.addMessage = this.addMessage.bind(this);
   }
 
   componentDidMount() {
@@ -20,15 +18,6 @@ export default class App extends React.Component {
         route: parseRoute(window.location.hash)
       });
     });
-  }
-
-  addMessage(newMessage) {
-    fetch('api/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newMessage)
-    })
-      .then(response => response.json());
   }
 
   renderPage() {
@@ -40,8 +29,7 @@ export default class App extends React.Component {
       const recipientId = route.params.get('recipientId');
       return (
         <>
-          <Chat recipientId={recipientId} />
-          <ChatInput recipientId={recipientId} onSubmit={this.addMessage} />
+          <ChatPage recipientId={recipientId} />
         </>
       );
     }

@@ -15,7 +15,6 @@ export default class ChatInput extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
     const newMessage = {
       message: this.state.text,
       senderId: '2',

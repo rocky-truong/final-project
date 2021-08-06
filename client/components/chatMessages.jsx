@@ -1,19 +1,19 @@
 import React from 'react';
 import { intlFormat } from 'date-fns';
 
-export default class Chat extends React.Component {
+export default class ChatMessages extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      messages: []
+      messages: [this.props.messages]
     };
   }
 
-  componentDidMount() {
-    fetch(`/api/messages/${this.props.recipientId}`)
-      .then(response => response.json())
-      .then(messages => this.setState({ messages }));
-  }
+  // componentDidMount() {
+  //   fetch(`/api/messages/${this.props.recipientId}`)
+  //     .then(response => response.json())
+  //     .then(messages => this.setState({ messages }));
+  // }
 
   render() {
     const messages = this.state.messages;
@@ -37,7 +37,7 @@ export default class Chat extends React.Component {
             messages.map(message => {
               return (
               <Message
-              key={message.messageId}
+              key={recipientId}
               message={message} />
               );
             })
