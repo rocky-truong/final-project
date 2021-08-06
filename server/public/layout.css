@@ -14,6 +14,11 @@
   .page-header {
     font-size: 24px;
   }
+
+  .search-icon,
+  .chats-link {
+    display: none;
+  }
 }
 
 @media (orientation: portrait) {
@@ -23,5 +28,23 @@
 
   .page-header {
     font-size: 20px;
+  }
+
+  .search-link,
+  .chats-link {
+    display: none;
+  }
+
+  .title {
+    position: fixed;
+  }
+
+  .button-send {
+    position: fixed;
+    right: 2em;
+  }
+
+  .text-input {
+    width: 70%;
   }
 }

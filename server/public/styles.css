@@ -27,8 +27,52 @@
   color: #03256c;
 }
 
+.links {
+  text-align: right;
+  flex-grow: 1;
+}
+
+.search-link {
+  padding-right: 35px;
+}
+
+.search-link,
+.chats-link {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.chats-link {
+  padding-right: 30px;
+}
+
+.chats-link:hover {
+  cursor: pointer;
+}
+
+.search-link:hover {
+  cursor: pointer;
+}
+
+.search-icon {
+  font-size: 0.5rem;
+  position: fixed;
+  right: 3.5em;
+  color: white;
+}
+
+.search-icon:hover {
+  cursor: pointer;
+}
+
 .result-ul {
   padding: 0;
+}
+
+.user-anchor {
+  text-decoration: none;
+  color: black;
 }
 
 .result-li {
@@ -38,6 +82,10 @@
   border-bottom: 1px solid grey;
   margin-right: 28px;
   padding: 5px 0;
+}
+
+.result-li:hover {
+  cursor: pointer;
 }
 
 .tennis-ball {
@@ -69,4 +117,74 @@
 .ntrp-level {
   text-align: end;
   margin-top: 10px;
+}
+
+.message-display {
+  text-align: right;
+}
+
+.message {
+  background-color: #0099fe;
+  font-size: 20px;
+  color: white;
+  border-radius: 27px;
+  margin-bottom: 25px;
+  max-width: 150px;
+  padding: 12px;
+  word-break: break-word;
+  display: inline-block;
+  min-width: 40px;
+  text-align: left;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+
+.message-input {
+  color: white;
+  height: 55px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  margin-left: 35px;
+}
+
+.timestamp {
+  font-weight: lighter;
+}
+
+.text-input {
+  background: #03256c;
+  border: 0;
+  color: white;
+  font-size: 16px;
+}
+
+.text-input:focus {
+  outline: none;
+}
+
+.text-input::placeholder {
+  color: white;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.button-send {
+  background-color: #03256c;
+  border: 0;
+  color: white;
+}
+
+.button-send:hover {
+  cursor: pointer;
+}
+
+.footer {
+  background-color: #03256c;
+  height: 55px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
 }

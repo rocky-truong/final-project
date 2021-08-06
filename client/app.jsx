@@ -1,30 +1,47 @@
 import React from 'react';
-import UserList from './pages/search';
+import SearchList from './pages/search';
 import Header from './components/header';
+import ChatPage from './pages/chatPage';
+import { parseRoute } from './lib';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: []
+      route: parseRoute(window.location.hash)
     };
   }
 
   componentDidMount() {
-    fetch('api/users', { method: 'GET' })
-      .then(response => response.json())
-      .then(users => this.setState({
-        users
-      }));
+    window.addEventListener('hashchange', hashRoute => {
+      this.setState({
+        route: parseRoute(window.location.hash)
+      });
+    });
+  }
+
+  renderPage() {
+    const { route } = this.state;
+    if (route.path === '') {
+      return <SearchList />;
+    }
+    if (route.path === 'chats') {
+      const recipientId = route.params.get('recipientId');
+      return (
+        <>
+          <ChatPage recipientId={recipientId} />
+        </>
+      );
+    }
+
+    return <SearchList />;
   }
 
   render() {
     return (
       <>
       <Header />
-      <div>
-        <UserList users={this.state.users} />
-      </div>
+      { this.renderPage() }
       </>
     );
   }

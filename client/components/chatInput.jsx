@@ -1,0 +1,43 @@
+import React from 'react';
+
+export default class ChatInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ text: event.target.value });
+  }
+
+  handleSubmit(event) {
+    const newMessage = {
+      message: this.state.text,
+      senderId: '2',
+      recipientId: this.props.recipientId
+    };
+    this.props.onSubmit(newMessage);
+    this.setState({ text: '' });
+  }
+
+  render() {
+    return (
+      <>
+        <div className="container">
+          <form className="message-input" onSubmit={this.handleSubmit}>
+            <input type="text" name="text" id="text" value={this.state.text}
+              placeholder="Type a message..." onChange={this.handleChange}
+              size="75" required className="text-input" />
+            <button className="button-send" type="submit">
+              <i className="fas fa-paper-plane fa-2x"></i>
+            </button>
+          </form>
+        </div>
+      </>
+    );
+  }
+}
