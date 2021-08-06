@@ -26,7 +26,6 @@ CREATE TABLE "public"."messages" (
 	"createdAt" timestamptz(6) not null default now(),
 	"senderId" serial NOT NULL,
 	"recipientId" serial NOT NULL,
-  "recipientName" TEXT NOT NULL,
 	CONSTRAINT "messages_pk"
   PRIMARY KEY ("messageId")
 ) WITH (
@@ -38,4 +37,3 @@ CREATE TABLE "public"."messages" (
 
 ALTER TABLE "messages" ADD CONSTRAINT "messages_fk0" FOREIGN KEY ("senderId") REFERENCES "users"("userId");
 ALTER TABLE "messages" ADD CONSTRAINT "messages_fk1" FOREIGN KEY ("recipientId") REFERENCES "users"("userId");
-ALTER TABLE "messages" ADD CONSTRAINT "messages_fk2" FOREIGN KEY ("recipientName") REFERENCES "users"("name");

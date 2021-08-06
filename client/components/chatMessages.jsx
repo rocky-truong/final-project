@@ -9,14 +9,8 @@ export default class ChatMessages extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   fetch(`/api/messages/${this.props.recipientId}`)
-  //     .then(response => response.json())
-  //     .then(messages => this.setState({ messages }));
-  // }
-
   render() {
-    const messages = this.state.messages;
+    const messages = this.props.messages;
     let recipientId = this.props.recipientId;
     if (recipientId === '1') {
       recipientId = 'Austin';
@@ -31,13 +25,13 @@ export default class ChatMessages extends React.Component {
       return (
       <>
       <div className="container">
-        <h2 className="page-header">Chat with {messages[0].recipientName}</h2>
+        <h2 className="page-header">Chat with {recipientId}</h2>
         <div>
           {
             messages.map(message => {
               return (
               <Message
-              key={recipientId}
+              key={message.messageId}
               message={message} />
               );
             })

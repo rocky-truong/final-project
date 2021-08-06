@@ -25,15 +25,18 @@ export default class ChatPage extends React.Component {
       body: JSON.stringify(newMessage)
     })
       .then(response => response.json())
-      .then(newMessage => this.setState({ messages: this.state.messages.concat(newMessage) }));
+      .then(newMessage => this.setState({
+        messages: this.state.messages.concat(newMessage)
+      }));
   }
 
   render() {
     const recipientId = this.props.recipientId;
     const messages = this.state.messages;
+    const createdAt = this.state.messages.createdAt;
     return (
       <>
-        <ChatMessages messages={messages} recipientId={recipientId} />
+        <ChatMessages createdAt={createdAt} messages={messages} recipientId={recipientId} />
         <ChatInput recipientId={recipientId} onSubmit={this.addMessage} />
       </>
     );
